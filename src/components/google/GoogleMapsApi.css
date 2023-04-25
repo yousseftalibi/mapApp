@@ -1,0 +1,22 @@
+.map-container {
+  height: 50vh;
+  width: 50vw;
+}
+
+.slider-wrapper {
+    height: 350px;
+}
+
+
+.carousel .control-arrow, .carousel.carousel-slider .control-arrow {
+    position: absolute;
+    z-index: 2;
+    top: 90px;
+    height: 150px;
+    background-color: rgba(137, 6, 207, 0.904);
+    font-size: 32px;
+}
+
+.control-dots{
+    visibility: hidden;
+}
