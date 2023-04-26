@@ -1,56 +1,70 @@
 import './header.css';
-import Directions from '../../components/directions/Directions'
-import LocateMe from '../../components/locateMe/LocateMe';
-import Chat from '../../components/chat/Chat';
 import { useState } from 'react';
+import Events from '../../components/Events/Events';
+import Directions from '../../components/directions/Directions';
+import ParkingLots from '../../components/ParkingLots/ParkingLots';
+import Chat from '../../components/chat/Chat';
 
 let Header = () => {
   const [showDirections, setDirections] = useState(false);
-  const [showLocateMe, setLocateMe] = useState(false);
+  const [showEvents, setEvents] = useState(false);
+  const [showChat, setChat] = useState(false);
   const [showParkingLots, setParkingLots] = useState(false);
+
   const showDirectionsComponent = () => {
     setDirections(true);
-    setLocateMe(false);
+    setChat(false);
     setParkingLots(false);
-
+    setEvents(false);
   }
-  const showLocateMeComponent = () => {
-    setLocateMe(true);
+  const showEventsComponent = () => {
+    setEvents(true);
+    setDirections(false);
+    setChat(false);
+    setParkingLots(false);
+  }
+  const showChatComponent = () => {
+    setChat(true);
     setDirections(false);
     setParkingLots(false);
+    setEvents(false);
 
   }
   const showParkingLotsComponent = () => {
     setParkingLots(true);
-    setLocateMe(false);
+    setChat(false);
     setDirections(false);
+    setEvents(false);
   }
 
   return (
-    <div style={{
-      display: 'flex', flexDirection: 'row', justifyContent: 'center', 
-      top: 0,
-      left: 0,
-      right: 0
-    }}>
-      <div id="component" onClick={showDirectionsComponent}>
+    <div class="headerBar">
+
+    <div id="component" onClick={showDirectionsComponent}>
         <h1>
           Directions
         </h1>
         {showDirections && <Directions />}
       </div>
-      <div id="component" onClick={showLocateMeComponent}>
+
+      <div id="component" onClick={showEventsComponent}>
         <h1>
-          My Parking
+          Events
         </h1>
-        {showLocateMe && <LocateMe />}
+        {showEvents && <Events />}
+      </div>
+      <div id="component" onClick={showParkingLotsComponent}>
+        <h1>
+          Parking Lots
+        </h1>
+        {showParkingLots && <ParkingLots />}
       </div>
 
-      <div id="component" onClick={showParkingLotsComponent} >
+      <div id="component" onClick={showChatComponent} >
         <h1 >
           Chat
         </h1>
-        {showParkingLots && <Chat />}
+        {showChat && <Chat />}
       </div>
     </div>
   );

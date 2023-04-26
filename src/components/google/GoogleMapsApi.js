@@ -1,7 +1,7 @@
 import React from 'react'
 import { GoogleMap, useJsApiLoader, Marker } from '@react-google-maps/api';
-import '../ParkingLots/ParkingSpotInfo.css';
-import ParkingSpotInfo from '../ParkingLots/ParkingSpotInfo';
+import '../ParkingLots/ParkingCarousel/ParkingSpotInfo.css';
+import ParkingSpotInfo from '../ParkingLots/ParkingCarousel/ParkingSpotInfo';
 import { Carousel } from 'react-responsive-carousel';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import './GoogleMapsApi.css';
@@ -22,7 +22,7 @@ const MapComponent = (props) => {
       
     const { isLoaded } = useJsApiLoader({
         id: 'google-map-script',
-        googleMapsApiKey: "AIzaSyD3HYiwjBqLzVo44dTH735T7I88SWiSXUQ"
+        googleMapsApiKey: "AIzaSyDsyOLA17EkFUROT4z8O02xFoPHMeHiha0"
     })
     const location = {
         lat: props.latitude,
